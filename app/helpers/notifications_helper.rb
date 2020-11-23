@@ -10,7 +10,11 @@ module NotificationsHelper
     when 'like'
       tag.a(notification.visitor.username, href: user_path(@visitor)) + 'さんが' + tag.a('あなたの投稿', href: post_path(notification.post_id)) + 'にいいねしました'
     when 'comment' then
-      tag.a(@visitor.username, href: user_path(@visitor)) + 'さんが' + tag.a("あなたの投稿", href: post_path(notification.post_id)) + 'にコメントしました'
+      tag.a(@visitor.username, href: user_path(@visitor)) + 'さんが' + tag.a("投稿", href: post_path(notification.post_id)) + 'にコメントしました'
     end  
+  end
+
+  def unchecked_notifications
+    @notifications = current_user.passive_notifications.where(checked: false)
   end
 end

@@ -1,0 +1,57 @@
+    <div id="header">
+      <div class="header-container">
+        <header>
+          <div class="header-logo">
+            <%= link_to 'Ks Essentails', root_path, class: 'header-logo-link'%>
+            <% if user_signed_in? %>
+              <span class="login-username"><%= current_user.username %>さんようこそ！</span>
+            <% end %>
+          </div>
+
+
+          <div class="header-menu" id="header-menu-id">
+            <ul>
+            <% if user_signed_in? %>
+              <li><%= link_to 'マイページ',user_path(current_user.id), class: 'header-menu-content'%></li>
+              <li><%= link_to '投稿一覧',posts_path, class: 'header-menu-content'%></li>
+              <li><%= link_to 'ユーザー一覧',users_path, class: 'header-menu-content'%></li>
+              <li class="notification-position"><%= link_to '通知',notifications_path, class: 'header-menu-content'%>
+              <% if unchecked_notifications.any? %>
+                <span class="notification-circle"><%= unchecked_notifications.count %></span>
+              <% end %>
+              </li>
+              <li><%= link_to '新規投稿',new_post_path, class: 'header-menu-content'%></li>
+              <li><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: 'header-menu-btn'%></li>
+              <% else %>
+                <li><%= link_to 'ログイン',user_session_path , class: 'header-menu-btn'%></li>
+                <li><%= link_to '新規登録', new_user_registration_path, class: 'header-menu-btn'%></li>
+              <% end %>
+            </ul>
+          </div>
+
+          <div class="responsive-menu">
+            <div class="menu-icon" id="menu-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="responsive-menu-content" id="menu-content">
+              <ul>
+                <% if user_signed_in? %>
+                  <li><%= link_to 'マイページ',user_path(current_user.id), class: 'header-menu-btn'%></li>
+                  <li><%= link_to '投稿一覧',posts_path, class: 'header-menu-btn'%></li>
+                  <li><%= link_to 'ユーザー一覧',users_path, class: 'header-menu-btn'%></li>
+                  <li><%= link_to '通知',notifications_path, class: 'header-menu-btn'%></li>
+                  <li><%= link_to '新規投稿',new_post_path, class: 'header-menu-btn'%></li>
+                  <li><%= link_to 'ログアウト',destroy_user_session_path , class: 'header-menu-btn'%></li>
+                <% else %>
+                  <li><%= link_to 'ログイン',user_session_path , class: 'header-menu-btn'%></li>
+                  <li><%= link_to '新規登録', new_user_registration_path, class: 'header-menu-btn'%></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+
+        </header>
+      </div>
+    </div>

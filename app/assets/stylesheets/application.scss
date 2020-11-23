@@ -125,6 +125,24 @@ header {
           opacity: 0.7;
         }
       }
+
+      .notification-position {
+        position: relative;
+      }
+      .notification-circle {
+        position: absolute;
+        top: -14px;
+        left: 25px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: #fff;
+        background: gold;
+        font-size: 12px;
+        text-align: center;
+        line-height: 20px;
+        padding: 2px;
+      }
     }
   }
 }

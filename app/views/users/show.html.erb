@@ -33,7 +33,7 @@
       </div>
 
       <div class="user-show-profile">
-        <%= @user.profile %>
+        <%= simple_format(@user.profile) %>
       </div>
 
       <%= link_to "フォロー#{@user.followings.count}", followings_user_path(@user), class: "relationship-btn" %>

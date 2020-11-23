@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :update, :followings, :followers ]
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(15)
   end
 
   def show

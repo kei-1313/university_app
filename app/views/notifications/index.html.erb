@@ -1,0 +1,18 @@
+<div class="notification all-wrapper">
+  <div class="notification-container all-container">
+    <div class="notification-title">
+      <h2>通知</h2>
+    </div>
+    <%= link_to notification_path(@notifications), method: :delete, class: 'all-delete-notifications' do %>
+      <span><i class="fas fa-trash-alt"></i></span>全通知削除
+    <% end %>
+    
+    <% if @notifications.exists? %>
+      <div class="notification-index">
+        <%= render @notifications %>
+      </div>
+    <% else %>
+      <h3 class="nothing-notifications">通知はありません</h3>
+    <% end %>
+  </div>
+</div>

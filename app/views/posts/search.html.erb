@@ -1,0 +1,25 @@
+<div class="post-index all-wrapper">
+  <div class="post-index-container all-container">
+    <%= link_to '前のページに戻る>>', :back , class: 'back-btn'%>
+      <div class="post-index-title all-title">
+        <h2>検索結果<%= @posts.count %>件</h2>
+      </div>
+
+      <% @posts.each do |post| %>
+          <div class="post-index-link">
+            <%= link_to post_path(post) do %>
+              <div class="post-index-content">
+                <div class="post-index-image">
+                  <%= attachment_image_tag post, :image, fallback: "nothing-image.png", class: 'post-index-img'%>
+                </div>
+
+                <div class="post-index-title">
+                  <%= post.title %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      <% end %>
+
+  </div>
+</div>      

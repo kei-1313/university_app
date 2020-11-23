@@ -1,0 +1,20 @@
+    <div class="post-new-content">
+      <%= form_with model: @post, local: true do |f| %>
+
+        <%= render 'error_messages' %>
+        
+        <div class="post-create">
+          <%= f.text_field :title, placeholder: 'タイトルを書く', class: 'post-new-field', id: 'title' %>
+        </div>
+        <div class="post-create">
+          <%= f.text_area :body, placeholder: '本文を書く', class: 'post-new-field', rows: 10, id: 'body' %>
+        </div>
+        <div class="post-create">
+          <%= f.attachment_field :image %>
+        </div>
+      
+      <div class="post-new-btn-container">
+        <%= f.submit '投稿する', class: 'post-new-btn'%>
+      </div>
+      <% end %>
+    </div>

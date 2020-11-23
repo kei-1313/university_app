@@ -1,0 +1,31 @@
+//kaminari
+.pagination-container {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.first,
+.prev,
+.next,
+.last,
+.page{
+  color: #ff8d99;
+  margin-left: 5px;
+  display: inline-block;
+  a {
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #ff8d99;
+    background-color: #ff8d99;
+    padding:  3px 12px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+    transition: all .4s;
+  }
+
+  a:hover {
+    opacity: 0.7;
+  }
+}
+

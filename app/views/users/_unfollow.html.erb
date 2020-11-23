@@ -1,0 +1,5 @@
+<%#どのユーザーのフォローを外すのかを取得してrelationshipコントローラーのでdestroyアクションを呼んでいる %>
+<%= form_with(model: current_user.following_relationships.find_by(following_id: @user.id),method: :delete) do |f| %>
+  <%= f.hidden_field :following_id %>  
+  <%= f.submit "フォロー中", class: "unfollow-btn" %>
+<% end %>

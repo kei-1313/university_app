@@ -1,0 +1,47 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//notifications/index and _notificationのview
+.notification-container {
+  max-width: 800px;
+  padding: 25px 80px;
+}
+
+.notification-title {
+  text-align: center;
+}
+
+.all-delete-notifications {
+  color: #808080;
+  transition: all .4s;
+  margin-top: 5px;
+  display: inline-block;
+  .fa-trash-alt {
+    display: inline-block;
+    margin-right: 2px;
+  }
+}
+
+.all-delete-notifications:hover {
+  opacity: 0.7;
+}
+
+.notification-view{
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+
+  .notification-time {
+    font-size: 12px;
+    color: #808080;
+  }
+  //helper内
+  a {
+    color: rgb(44, 157, 165);
+    font-weight: 600;
+  }
+}
+
+.nothing-notifications {
+  text-align: center;
+}

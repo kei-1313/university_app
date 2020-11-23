@@ -1,0 +1,28 @@
+    <div class="user-index-content">
+        <div class="user-index-info">
+          <table class="user-index-table">
+            <thead>
+              <tr>
+                <th>プロフィール画像</th>
+                <th>ユーザーネーム</th>
+                <th>学籍番号</th>
+                <th>プロフィール</th>
+                <th>詳細</th>
+              </tr>
+            </thead>
+          <% @users.each do |user|%>
+            <tbody>
+              <tr>
+                <td>
+                  <%= attachment_image_tag user, :profile_image, fallback: "no-image.png", class: 'no-image'%>
+                </td>
+                <td><%= user.username %></td>
+                <td><%= user.student_id %></td>
+                <td><%= user.profile %></td>
+                <td><%= link_to '詳細', user_path(user.id), class: 'user-index-btn' %></td>
+              </tr>
+            </tbody>
+          <% end %>  
+          </table>
+        </div>
+    </div>

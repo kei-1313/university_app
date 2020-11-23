@@ -1,0 +1,5 @@
+<%#modelにはインスタンスが必要なので空のrelationshipインスタンスを作成している%>
+<%= form_with(model: current_user.following_relationships.build ) do |f|%> 
+  <%= f.hidden_field :following_id, value: @user.id %> <%#見えないように誰がフォローしたかの情報（following_id）を送っている%>
+  <%= f.submit "フォローする", class: "follow-btn" %>
+<% end %>

@@ -1,0 +1,127 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//users/index users/_user_all  users/show_followings users/show_followers 
+.user-index-container {
+  max-width: 1110px;
+  padding: 40px 80px;
+}
+
+.user-index-title {
+  text-align: center;
+  padding:0 0 30px 0;
+}
+
+.user-index-content {
+  display: flex;
+  .user-index-info {
+    .user-index-table {
+      width: 100%;
+      border-collapse: collapse;
+      thead {
+        tr {
+          border-bottom: 5px solid #ddd;
+          th {
+            padding: 8px 0;
+            font-weight: 600;
+          }
+          th:nth-child(1),
+          th:nth-child(2),
+          th:nth-child(3){
+            width: 150px;
+          }
+          th:nth-child(4) {
+            width: 400px;
+          }
+
+          th:nth-child(5) {
+            width: 100px;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-bottom: 3px solid #ddd;
+          td {
+            text-align: center;
+            padding: 10px;
+
+            .no-image {
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+            }
+
+            .user-index-btn {
+              background: rgb(92, 190, 92);
+              color: #fff;
+              padding: 10px 12px;
+              border-radius: 4px;
+              transition: all .4s;
+              display: inline-block;
+            }
+             .user-index-btn:hover {
+              background: #fff;
+              color: rgb(92, 190, 92);
+              border: 1px solid rgb(92, 190, 92);
+             }
+          }
+        }
+      }
+    }
+  }
+}
+
+//レスポンシブ
+@media screen and (max-width:700px) {
+  .user-index-content {
+    .user-index-info {
+      .user-index-table {
+        thead {
+          tr {
+            th {
+              font-size: 12px;
+            }
+          }
+        }
+  
+        tbody {
+          tr {
+            td {
+              font-size: 12px;
+              .user-index-btn {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:580px) {
+  .user-index-container {
+    padding: 40px 5px;
+  }
+
+  .user-index-content {
+    .user-index-info {
+      .user-index-table {
+        tbody {
+          tr {
+            td {
+              .no-image {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+              }
+            }
+          } 
+        }
+      }
+    }
+  }
+}

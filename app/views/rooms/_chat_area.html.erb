@@ -1,0 +1,29 @@
+      <% if @messages.present? %>
+        <% @messages.each do |m| %>
+          <% if m.user_id == current_user.id %>
+            <div class="my-message-container">
+              <div class="my-message">
+                <%= m.message %>
+              </div>
+              <span class="my-message-time"><%= m.created_at.strftime("%m月%d日%H時%M分")%></span>
+            </div>
+          <% else %>
+            <div class="other-message-container">
+                <div class="other-message">
+                  <%= m.message %>
+                </div>
+              <span class="other-message-time">
+                <%= m.user.username %>
+                <%= m.created_at.strftime("%m月%d日%H時%M分") %>
+              </span>
+            </div>
+          <% end %> <%# メッセージがログインしているユーザーのものか確認 %>
+        
+        <% end %>
+      <% else %>
+        <h3 class="nothing-message">メッセージはまだありません</h3>
+      <% end %>
+    
+
+
+

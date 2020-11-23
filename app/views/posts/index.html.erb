@@ -1,0 +1,37 @@
+<div class="post-index all-wrapper">
+  <div class="post-index-container all-container">
+    <div class="post-index-title all-title">
+      <h2>投稿一覧</h2>
+    </div>
+    <%# 検索機能 %>
+    <div class="search-form">
+      <%= form_with url: search_posts_path, method: :get, local: true do |f| %> <%# データベースに保存しない %>
+        <%= f.text_field :title, placeholder: '投稿を検索する', class: 'seach-text-field' %>
+        <%= f.submit '検索', class: 'seach-submit' %>
+      <% end  %>
+    </div>
+
+    <% @posts.each do |post| %>
+      <div class="post-index-link">
+        <%= link_to post_path(post), class: 'link_to_allpost' do %>
+          <div class="post-index-content">
+            <div class="post-index-image">
+              <%= attachment_image_tag post, :image, fallback: "nothing-image.png", class: 'post-index-img'%>
+            </div>
+
+            <div class="post-index-title">
+              <%= post.title %>
+            </div>
+          </div>
+          <div class="post-index-info-container">
+            <span class="post-index-info"><i class="fas fa-comments"></i><%= post.comments.count %></span>
+            <span class="post-index-info"><%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></span>
+          </div>
+        <% end %>
+      </div> 
+    <% end %>
+  </div>
+  <div class="pagination-container">
+    <%= paginate @posts %>
+  </div>
+</div>

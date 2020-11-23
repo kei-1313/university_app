@@ -1,0 +1,94 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//posts/indexのview
+.post-index-container {
+  padding: 30px ;
+  max-width: 650px;
+}
+
+
+.post-index-link {
+  padding: 15px 10px 2px 10px;
+  box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+  .post-index-content {
+    display: flex;
+    .post-index-image {
+      width: 15%;
+      .post-index-img{
+        width: 60px;
+        height: 60px;
+      }
+    }
+  
+    .post-index-title {
+      width: 80%;
+      align-self: center;
+      font-size: 19px;
+      color: #95a3a6;
+      font-weight: 600;
+      margin-left: 32px;
+    }
+  }
+
+  .post-index-info-container {
+    text-align: right;
+    .post-index-info {
+      font-size: 11px;
+      color:#95a3a6 ;
+      display: inline-block;
+      padding-top: 13px;
+
+      .fa-comments{
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .post-index-content:hover {
+    opacity: 0.7;
+  }
+}
+
+//検索機能
+.search-form {
+  text-align: right;
+  padding: 10px 0;
+  .seach-text-field  {
+    font-size: 15px;
+    padding: 5px 8px;
+    border: 3px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .seach-submit {
+    outline: none;
+    padding: 5px 10px;
+    background-color: yellowgreen;
+    color: #fff;
+    transition: all .4s;
+    cursor: pointer;
+    border: 1px solid yellowgreen;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .seach-submit:hover {
+    background-color: #fff;
+    color:  yellowgreen;;
+  }
+}
+
+//レスポンシブ
+@media screen and (max-width:580px) {
+  .post-index-link {
+    .post-index-content {
+      .post-index-title {
+        font-size: 15px;
+      }
+    }
+  }
+}
+

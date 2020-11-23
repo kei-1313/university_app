@@ -1,0 +1,227 @@
+//posts/showのview
+@mixin comment-btn($color: #fff, $backgorund-color: #ff8d99, $border: 1px solid  #ff8d99) {
+  font-size: 13px;
+  line-height: 36px;
+  width: 190px;
+  height: 36px;
+  border-radius: 3px;
+  color: $color;
+  font-weight: 600;
+  text-align: center;
+  background-color: $backgorund-color;
+  border:$border;
+  transition: all .4s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+@mixin comment-btn-hover($color: #ff8d99, $backgorund-color: #fff) {
+  background-color:$backgorund-color;
+  color:$color ;
+}
+
+.post-show-container {
+  padding: 30px ;
+  max-width: 800px;
+}
+
+.posts-back-btn {
+  .post-show-back-btn {
+    color: #808080;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 3px;
+    transition: all .4s;
+  }
+
+  .post-show-back-btn:hover {
+    opacity: 0.7;
+  }
+}
+
+.post-show-flex {
+  display: flex;
+  justify-content: space-between;
+  .post-show-time {
+    font-size: 12px;
+    color: #808080;
+  }
+
+  .post-show-comment {
+    .post-comment-btn{
+      @include comment-btn();
+    }
+
+    .post-comment-btn:hover {
+      @include comment-btn-hover();
+    }
+  }
+}
+
+.post-show-image {
+  .post-show-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 7px;
+  }
+}
+
+.post-show-border {
+  border-bottom: 3px solid #ff8d99;
+  padding-bottom: 2px;
+  .post-show-edit-destroy {
+    font-size: 14px;
+    .post-show-btn{
+      margin-right: 5px;
+      color: #808080;
+      transition: all .4s;
+    }
+    .post-show-btn:hover{
+      opacity: 0.7;
+    }
+  }
+
+  .post-show-username {
+    .post-user {
+      color: black;
+      transition: all .4s;
+    }
+    .post-user:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.post-show-title {
+  padding: 20px 0 10px 0;
+  h3 {
+    color: #ff8d99;
+  }
+}
+
+.post-show-body {
+  padding-bottom: 30px;
+}
+
+.post-show-like {
+  text-align: right;
+  padding: 0 20px 10px 0;
+
+  .fa-heart {
+    color: red;
+  }
+}
+
+//コメント投稿機能
+.post-show-comment {
+  padding-top: 20px;
+
+  .post-show-comment-title {
+    padding-bottom: 20px;
+    h3 {
+      color: #808080;
+      font-weight: normal;
+      font-size: 16px;
+    }
+  }
+
+  .comment-text-area {
+    width: 100%;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+  }
+  .post-comment-submit {
+    padding:20px 0 ;
+    text-align: center;
+    .comment-submit{
+      outline: none;
+      @include comment-btn();
+    }
+
+    .comment-submit:hover {
+      @include comment-btn-hover();
+    }
+  }
+}
+
+.comment-all {
+  display: flex;
+  padding: 20px 10px 15px 10px;
+  border-top: 1px solid #ddd;
+  .comment-user-images {
+    width: 20%;
+    text-align: center;
+    .comment-user-img {
+      width:80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+  }
+
+  .comment-content {
+    width: 75%;
+    .comment-username{
+      padding: 5px 0 10px 0;
+    }
+  }
+
+  //users/showのview
+  .comment-user-content {
+    align-self:center;
+    color: #333;
+  }
+
+  .comment-delete {
+    width: 5%;
+    .comment-delete-btn {
+      color: #808080;
+      transition: all .4s;
+      font-size: 12px;
+    }
+
+    .comment-delete-btn:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.comment-time {
+  font-size: 12px;
+  color: #808080;
+  text-align: right;
+  padding:0 8px 5px 0;
+  letter-spacing: 0.8px;
+}
+
+//レスポンシブ
+@media screen and (max-width:580px) {
+
+  //コメント部分
+  .comment-all {
+    .comment-user-images {
+      .comment-user-img {
+        width:70px;
+        height: 70px;
+      }
+    }
+  
+    .comment-content {
+      margin-left: 30px;
+      p {
+       font-size: 14px;
+      }
+    }
+  }
+
+  .comment-time {
+    font-size: 10px;
+  }
+}
+
+
+
+
+

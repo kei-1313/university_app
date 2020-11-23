@@ -1,0 +1,92 @@
+<div class="post-show all-wrapper">
+  <div class="post-show-container all-container">
+    <div class="posts-back-btn">
+      <%= link_to '一覧へ戻る >>', posts_path, class: 'post-show-back-btn' %>
+    </div>
+    <div class="post-show-flex">
+      <div class="post-show-time">
+        <%= @post.created_at.strftime("%Y年%m月%d日%H時%M分")%>
+      </div>
+      <div class="post-show-comment">
+        <a class="post-comment-btn" href="#to-comment">コメントを投稿する</a>
+      </div>
+    </div>
+
+      <div class="post-show-image">
+         <%= attachment_image_tag @post.user, :profile_image, fallback: "no-image.png", class: 'post-show-img'%>
+      </div>
+
+    <div class="post-show-flex post-show-border">
+      <div class="post-show-username">
+        <span>投稿者：<%= link_to @post.user.username, user_path(@post.user_id), class: 'post-user' %></span>
+      </div>
+      <% if @post.user.id == current_user.id %>
+        <div class="post-show-edit-destroy">
+          <%= link_to  '編集する',edit_post_path(@post), class: 'post-show-btn' %>
+          <%= link_to  '削除する',post_path(@post), method: :delete, data: {confirm: 'この投稿を削除しますか？'}, class: 'post-show-btn' %>
+        </div>
+      <% end %>
+    </div>
+
+    
+      <div class="post-show-title">
+        <h3><%= @post.title %></h3>
+      </div>
+
+      <div class="post-show-body">
+        <%= simple_format(@post.body) %>
+      </div>
+
+      <div class="post-show-like">
+        <% if current_user.alread_liked?(@post) %>
+            <%= link_to post_like_path(@post), method: :delete, class: 'unlike_btn' do %>
+              <span><i class="fas fa-heart"></i></span>
+            <% end %>
+          <% else %>
+             <%= link_to post_likes_path(@post), method: :post, class: 'like_btn'  do %>
+             <span><i class="far fa-heart"></i></span>
+             <% end %>
+        <% end %>
+        <%= @post.likes.count %>
+      </div>
+
+
+    
+      <% @comments.each do |comment|%>
+        <div class="comment-all">
+          <div class="comment-user-images">
+            <%= attachment_image_tag comment.user, :profile_image, fallback: "no-image.png", class: 'comment-user-img'%>
+          </div>
+          <div class="comment-content">
+            <p class="comment-username"><%= comment.user.username%></p>
+            <p class="comment-text"><%= comment.content %></p>
+          </div>
+          <% if  comment.user_id == current_user.id %>
+            <div class="comment-delete">
+              <%= link_to  '削除',post_comment_path(comment.post.id, comment.id), method: :delete, data: {confirm: 'このコメントを削除しますか？'}, class: 'comment-delete-btn' %>
+            </div>
+          <% end %>
+         </div>
+        
+          <p class="comment-time"><%= comment.set_date%></p>
+      <% end %>
+   
+
+      <div class="post-show-comment" id="to-comment">
+        <div class="post-show-comment-title">
+          <h3>コメントを投稿する</h3>
+        </div>
+        <%= form_with(model: [@post, @comment]) do |f| %>
+          <%= f.text_area :content, class: 'comment-text-area',rows: 10, placeholder: 'コメントを書く', id: 'comment_feild' %>
+          <div class="post-comment-submit">
+            <%= f.submit 'コメントを投稿する', class: 'comment-submit' %>
+          </div>
+        <% end %>
+      </div>
+
+      
+
+     
+   
+  </div>
+</div>

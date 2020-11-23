@@ -1,0 +1,51 @@
+<div class="sign_up all-wrapper">
+  <div class="sign_up-container all-container">
+    <div class="sign_up-content">
+      
+      <div class="sign_up-title">
+        <h2>新規登録</h2>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field form-content">
+          <%= f.label :username, "ユーザー名", class: 'label-heading' %><br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'sign_up-form-content' %>
+        </div>
+
+        <div class="field form-content">
+          <%= f.label :student_id, "学籍番号", class: 'label-heading' %><br />
+          <%= f.text_field :student_id, autofocus: true, autocomplete: "student_id", class: 'sign_up-form-content' %>
+        </div>
+
+        <div class="field form-content">
+          <%= f.label :email, "メールアドレス", class: 'label-heading' %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'sign_up-form-content' %>
+        </div>
+
+        <div class="field form-content">
+          <%= f.label :password, "パスワード", class: 'label-heading' %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上で入力)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'sign_up-form-content' %>
+        </div>
+
+        <div class="field form-content">
+          <%= f.label :password_confirmation, "パスワードの確認", class: 'label-heading' %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'sign_up-form-content' %>
+        </div>
+
+        <div class="actions sign_up-submit">
+          <%= f.submit "登録する", class: 'sign_up-submit-content' %>
+        </div>
+      <% end %>
+
+      <div class="for-user">
+        <p>すでにアカウントをお持ちの方は<%= link_to 'こちら',user_session_path , class: 'for-user-btn'%></p>
+      </div>
+
+    </div>
+  </div>
+</div>

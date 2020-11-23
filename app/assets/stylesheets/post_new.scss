@@ -1,0 +1,60 @@
+//posts/newのview
+.post-new-container {
+  max-width: 650px;
+  padding: 30px 15px;
+}
+
+//posts/_error_messages
+.error-explanation{
+  ul {
+    li {
+      color: rgb(245, 53, 53);
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+}
+
+.post-new-title {
+  border-bottom: 3px solid #ff8d99;
+  padding: 0 0 15px 0;
+  margin-bottom: 15px;
+  h3 {
+    color: #808080;
+  }
+}
+
+.post-new-content {
+  .post-create {
+    margin-bottom: 10px;    
+    .post-new-field {
+      width: 100%;
+      padding: 12px 10px;
+      box-sizing: border-box;
+      border-radius: 2px;
+      border: 1px solid #ccc;
+    }
+  }
+  .post-new-btn-container {
+    text-align: center;
+    padding-top: 15px;
+    .post-new-btn {
+      display: inline-block;
+      width: 250px;
+      outline: none;
+      border-radius: 4px;
+      background-color: #ff8d99;
+      border: 1px solid #ff8d99;
+      color: #fff;
+      transition: all .4s;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    .post-new-btn:hover {
+      background-color: #fff;
+      color: #ff8d99;
+    }
+  }
+}
+

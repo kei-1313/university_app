@@ -1,0 +1,5 @@
+    <%= form_with model: message do |f| %>
+      <%= f.text_field :message, placeholder: "メッセージを入力して下さい", size: 60, class: 'chat-text-field' %>
+      <%= f.hidden_field :room_id, value: room.id %>
+      <%= f.submit "送信",class: 'chat-form-submit'%>
+    <% end %>

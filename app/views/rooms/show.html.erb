@@ -1,0 +1,18 @@
+<div class="chat-room all-wrapper">
+  <div class="chat-room-container all-container">
+    <%= link_to '前のページに戻る>>', :back, class: 'back-btn' %>
+    <div class="chat-room-title">
+      <% @entries.each do |e| %>
+        <% if e.user_id != current_user.id %>
+          <h2><%= e.user.username %></h2>
+        <% end %>
+      <% end %>
+    </div>
+     <div class="chat-area">
+        <%= render partial: 'chat_area'%> 
+      </div>
+      <div class="chat_form">
+        <%= render partial: 'chat_form', locals: {message: @message, room: @room } %>
+      </div>
+  </div>
+</div>

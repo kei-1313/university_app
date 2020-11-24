@@ -4,10 +4,13 @@ class Notification < ApplicationRecord
   belongs_to :visited, class_name: "User", optional: true
   belongs_to :post, optional: true
   belongs_to :comment, optional: true
+  belongs_to :room, optional: true
+  belongs_to :message, optional: true
+
 
   validates :visitor_id, presence: true
   validates :visited_id, presence: true
-  ACTION_VALUES = ["like", "follow", "comment"]
+  ACTION_VALUES = ["like", "follow", "comment", "message"]
   validates :action,  presence: true, inclusion: {in:ACTION_VALUES} #inclusionで保存できる値を制限している
   validates :checked, inclusion: {in: [true,false]}
 end

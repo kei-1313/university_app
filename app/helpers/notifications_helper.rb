@@ -9,12 +9,14 @@ module NotificationsHelper
       tag.a(notification.visitor.username, href: user_path(@visitor)) + 'さんがあなたをフォローしました'
     when 'like'
       tag.a(notification.visitor.username, href: user_path(@visitor)) + 'さんが' + tag.a('あなたの投稿', href: post_path(notification.post_id)) + 'にいいねしました'
-    when 'comment' then
+    when 'comment' 
       if notification.post.user_id == notification.visited.id
         tag.a(@visitor.username, href: user_path(@visitor)) + 'さんが' + tag.a("あなた投稿", href: post_path(notification.post_id)) + 'にコメントしました'
       else
         tag.a(@visitor.username, href: user_path(@visitor)) + 'さんが' + tag.a("#{notification.post.user.username}の投稿", href: post_path(notification.post_id)) + 'にコメントしました'
       end
+    when 'message' then
+      tag.a(notification.visitor.username, href: user_path(@visitor)) + 'さんからメッセージが届きました'
     end  
   end
 

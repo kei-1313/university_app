@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_054100) do
+ActiveRecord::Schema.define(version: 2020_11_23_154328) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
@@ -59,8 +59,12 @@ ActiveRecord::Schema.define(version: 2020_11_03_054100) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "room_id"
+    t.integer "message_id"
     t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["message_id"], name: "index_notifications_on_message_id"
     t.index ["post_id"], name: "index_notifications_on_post_id"
+    t.index ["room_id"], name: "index_notifications_on_room_id"
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end

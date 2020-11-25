@@ -14,7 +14,7 @@
             <% if user_signed_in? %>
               <li><%= link_to 'マイページ',user_path(current_user.id), class: 'header-menu-content'%></li>
               <li><%= link_to '投稿一覧',posts_path, class: 'header-menu-content'%></li>
-              <li><%= link_to 'ユーザー一覧',users_path, class: 'header-menu-content'%></li>
+              <li><%= link_to 'ユーザ一覧',users_path, class: 'header-menu-content'%></li>
               <li class="notification-position"><%= link_to '通知',notifications_path, class: 'header-menu-content'%>
               <% if unchecked_notifications.any? %>
                 <span class="notification-circle"><%= unchecked_notifications.count %></span>

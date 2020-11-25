@@ -27,7 +27,7 @@
         <div class="field form-content">
           <%= f.label :password, "パスワード", class: 'label-heading' %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %>文字以上で入力)</em>
+          <em>(<%= @minimum_password_length %>文字以上の英数字で入力)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password", class: 'sign_up-form-content' %>
         </div>

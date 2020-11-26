@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: myapp_production
-  username: myapp
+  database: kyusan-university-app _production
+  username: kyusan-university-app 
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

@@ -70,4 +70,13 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  #ゲストログイン
+  def self.guest
+    find_or_create_by(email: 'guest@example.com') do |user|
+      user.username = "ゲスト"
+      user.student_id = "11TT111"
+      user.password = SecureRandom.hex
+    end
+  end
 end

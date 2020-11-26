@@ -51,4 +51,4 @@ production:
   <<: *default
   database: kyusan-university-app_production
   username: kyusan-university-app 
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['KYUSAN-UNIVERSITY-APP_DATABASE_PASSWORD'] %>

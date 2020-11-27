@@ -1,5 +1,6 @@
 # 概要
 #### "Ks Essentails"は九州産業大学の学生に向けた掲示板アプリです。
+※Essentailsとは必要不可欠のものという意味を持っています。
 
 このサービスは、『大学内で探したいを簡単に』をテーマにしています。
 
@@ -16,7 +17,7 @@
 * テスト(RSpec, FactoryBot, Capybara)
 * データベース(MySQL)
 * 開発環境（Docker,Vscode,Git,GitHub)
-* 本番環境　Heroku
+* 本番環境 (Heroku)
 
 # 機能
 ### ユーザ機能

@@ -25,7 +25,7 @@ RSpec.feature "Users", type: :feature do
 
         click_link "編集"
 
-        fill_in "ユーザー名", with: "田中太郎"
+        fill_in "ユーザ名", with: "田中太郎"
         fill_in "メールアドレス", with: "taro@gmail.com"
         fill_in "more-than-six", with: "tarotanaka"
         fill_in "確認用パスワード", with: "tarotanaka"
@@ -37,7 +37,7 @@ RSpec.feature "Users", type: :feature do
         expect(page).to have_content "アカウント情報を変更しました。"
 
         within ".header-menu" do
-          click_link "ユーザー一覧"
+          click_link "ユーザ一覧"
         end
 
         expect(page).to have_content "田中太郎"
@@ -52,13 +52,13 @@ RSpec.feature "Users", type: :feature do
         sign_in_as user
 
         within ".header-menu" do
-          click_link "ユーザー一覧"
+          click_link "ユーザ一覧"
         end
 
         page.all(".user-index-btn")[1].click
 
         expect(page).to_not have_link "編集"
-        expect(page).to have_content "ユーザー情報"
+        expect(page).to have_content "ユーザ情報"
       end
     end
 

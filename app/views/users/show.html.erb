@@ -6,7 +6,11 @@
     <div class="follow-dm-flex">
 
       <div class="to-chat-room">
-         <%= render 'contact'%>
+        <% if @user == current_user %>
+          <%= link_to 'DM一覧へ', rooms_path, class: 'all-dm' %>
+        <% else %>
+          <%= render 'contact'%>
+        <% end %>
       </div>
 
       <div class="follow_form">

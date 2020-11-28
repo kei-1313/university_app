@@ -120,6 +120,57 @@
   color: skyblue;
 }
 
+//ここからroomのindexページ
+.room-index-container {
+  max-width: 650px;
+  padding: 20px 30px 30px 30px;
+  transition: all .2s;
+}
+
+.room-index-title {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.room-index-link {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  .room-index-profile-img {
+    width: 15%;
+    .dm-index-img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  .room-index-message {
+      color: #333;
+      margin-left: 10px;
+      width: 75%;
+    .dm-index-username {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .dm-index-message {
+      padding-top: 5px;
+    }
+  }
+
+  .room-index-message-time {
+    width: 10%;
+    .dm-index-message-time {
+      font-size: 11px ;
+      color: #808080;
+    }
+  }
+}
+
+.room-index-link:hover {
+  background: #eee;
+}
+
 //レスポンシブ
 @media screen and (max-width:580px) {
   .my-message-container {
@@ -140,5 +191,26 @@
   
   .chat-text-field {
     width: 60%;
+  }
+
+  .room-index-link {
+    .room-index-profile-img {
+      .dm-index-img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  
+    .room-index-message {
+        margin-left: 10px;
+      .dm-index-username {
+        font-weight: 700;
+        font-size: 16px;
+      }
+  
+      .dm-index-message {
+        padding-top: 5px;
+      }
+    }
   }
 }

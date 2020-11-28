@@ -8,7 +8,7 @@ RSpec.feature "Relationships", type: :feature do
     sign_in_as user
 
     within ".header-menu" do
-      click_link 'ユーザー一覧'
+      click_link 'ユーザ一覧'
     end
 
     page.all(".user-index-btn")[1].click
@@ -25,7 +25,7 @@ RSpec.feature "Relationships", type: :feature do
     sign_in_as user
 
     within ".header-menu" do
-      click_link 'ユーザー一覧'
+      click_link 'ユーザ一覧'
     end
 
     page.all(".user-index-btn")[1].click

@@ -3,21 +3,25 @@
     <div class="room-index-title">
       <h2>DM一覧</h2>
     </div> 
-    <% @rooms.each do |room| %>
-      <%= link_to room_path(room), class: 'room-index-link' do %>
-      <div class="room-index-profile-img">
-        <%= not_me_user_profile_img(room) %>
-      </div>
-      
-       <div class="room-index-message">
-          <%= not_me_user(room) %>
-          <%= most_new_message(room) %>
+    <% if @rooms.present? %>
+      <% @rooms.each do |room| %>
+        <%= link_to room_path(room), class: 'room-index-link' do %>
+        <div class="room-index-profile-img">
+          <%= not_me_user_profile_img(room) %>
         </div>
+        
+        <div class="room-index-message">
+            <%= not_me_user(room) %>
+            <%= most_new_message(room) %>
+          </div>
 
-       <div class="room-index-message-time">
-         <%= most_new_message_time(room) %>
-        </div>
+        <div class="room-index-message-time">
+          <%= most_new_message_time(room) %>
+          </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <p class="nothing-dm">メッセージはありません</p>
     <% end %>
 
   </div>

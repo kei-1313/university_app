@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do #memberによりidの識別がされるようになる（:idと同じ）
       get :followings, :followers
     end
+    get :search, on: :collection #urlにidをつけない
   end
   resources :relationships, only: [:create, :destroy]
 

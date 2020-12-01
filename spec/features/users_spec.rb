@@ -62,4 +62,67 @@ RSpec.feature "Users", type: :feature do
       end
     end
 
+    context 'ユーザ検索' do
+      before do
+        @login_user = FactoryBot.create(:user)
+
+        @user1 = FactoryBot.create(:user, username: '降谷', student_id: '17EE331')
+        @user2 = FactoryBot.create(:user, username: '降谷', student_id: '17EE332')
+        @user3 = FactoryBot.create(:user, username: '諸星', student_id: '17EE333')
+
+        sign_in_as @login_user
+      end
+
+      scenario '検索がヒットする場合（usernameで検索）' do
+        within ".header-menu" do
+          click_link 'ユーザ一覧'
+        end
+
+        find(".seach-text-field").set("降谷")
+        click_button '検索'
+
+        expect(page).to have_content "検索結果"
+        expect(page).to have_content "2件"
+        expect(page).to have_content @user1.username
+        expect(page).to have_content @user2.username
+      end
+
+      scenario '検索がヒットする場合（student_idで検索）' do
+        within ".header-menu" do
+          click_link 'ユーザ一覧'
+        end
+
+        find(".seach-text-field").set("17EE333")
+        click_button '検索'
+
+        expect(page).to have_content "検索結果"
+        expect(page).to have_content "1件"
+        expect(page).to have_content @user3.username
+      end
+
+      scenario '検索結果がない場合（usernameで検索）' do
+        within ".header-menu" do
+          click_link 'ユーザ一覧'
+        end
+
+        find(".seach-text-field").set("松田")
+        click_button '検索'
+
+        expect(page).to have_content "検索結果"
+        expect(page).to have_content "0件"
+      end
+
+      scenario '検索結果がない場合（student_idで検索）' do
+        within ".header-menu" do
+          click_link 'ユーザ一覧'
+        end
+
+        find(".seach-text-field").set("16EE333")
+        click_button '検索'
+
+        expect(page).to have_content "検索結果"
+        expect(page).to have_content "0件"
+      end
+    end
+
 end

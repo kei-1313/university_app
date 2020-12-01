@@ -5,6 +5,13 @@
         <h2>ユーザ一覧</h2>
     </div>
 
+    <div class="search-form">
+      <%= form_with url: search_users_path, method: :get, local: true do |f| %> <%# データベースに保存しない %>
+        <%= f.text_field :search, placeholder: 'ユーザを検索する', class: 'seach-text-field' %>
+        <%= f.submit '検索', class: 'seach-submit' %>
+      <% end  %>
+    </div>
+
     <%= render partial: 'user_all'%>
     
   </div>

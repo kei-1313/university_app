@@ -71,6 +71,15 @@ class User < ApplicationRecord
     end
   end
 
+  #検索機能
+  def self.search(search)
+    if search
+      User.where('username LIKE ? OR student_id LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      User.all
+    end
+  end
+
   #ゲストログイン
   def self.guest
     find_or_create_by(email: 'guest@example.com') do |user|

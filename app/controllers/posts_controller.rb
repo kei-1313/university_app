@@ -49,13 +49,7 @@ class PostsController < ApplicationController
 
    #検索機能（あいまい検索）
    def search 
-    #postsテーブルのtitleカラムからparams[:title]（検索した内容）が入っている投稿を抽出している
-    if params[:title].present?
-      @posts = Post.where('title LIKE ?', "%#{params[:title]}%")
-    else
-      redirect_back(fallback_location: root_path)
-    end
-   
+    @posts = Post.post_search(params[:search])
    end
 
   private 

@@ -58,5 +58,15 @@ class Post < ApplicationRecord
       end
       notification.save if notification.valid?
   end
+
+  #投稿検索機能
+  def self.post_search(search)
+     #postsテーブルのtitleカラムからparams[:search] = 引数search（検索した内容）が入っている投稿を抽出している
+    if search 
+      Post.where('title LIKE ?', "%#{search}%")
+    else 
+      Post.all
+    end
+  end
       
 end

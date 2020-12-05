@@ -38,16 +38,7 @@
       </div>
 
       <div class="post-show-like">
-        <% if current_user.alread_liked?(@post) %>
-            <%= link_to post_like_path(@post), method: :delete, class: 'unlike_btn' do %>
-              <span><i class="fas fa-heart"></i></span>
-            <% end %>
-          <% else %>
-             <%= link_to post_likes_path(@post), method: :post, class: 'like_btn'  do %>
-             <span><i class="far fa-heart"></i></span>
-             <% end %>
-        <% end %>
-        <%= @post.likes.count %>
+        <%= render partial: 'likes/like', locals: { post: @post } %>
       </div>
 
 

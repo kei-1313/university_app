@@ -108,8 +108,16 @@
   text-align: right;
   padding: 0 20px 10px 0;
 
+  .likes-heart {
+    cursor: pointer;
+  }
+
   .fa-heart {
     color: red;
+  }
+
+  .likes-count {
+    color: #333;
   }
 }
 

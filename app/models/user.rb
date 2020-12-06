@@ -10,6 +10,7 @@ class User < ApplicationRecord
     message: "は半角7~8文字で英大文字と数字で入力して下さい"}   
   validates :email,  uniqueness: {case_sensitive: false, message: "は既に使用されています"}     
 
+  has_one_attached :user_photo
   attachment :profile_image   
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -32,7 +33,7 @@ class User < ApplicationRecord
   has_many :active_notifications, foreign_key:"visitor_id", class_name: "Notification", dependent: :destroy #通知をした側
   has_many :passive_notifications, foreign_key:"visited_id", class_name: "Notification", dependent: :destroy #通知をされた側
 
-
+  
   def posts
     return Post.where(user_id: self.id)
   end

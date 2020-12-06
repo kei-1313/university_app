@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   # 投稿が誰にいいねされているかを取得するため
   has_many :liked_users, through: :likes, source: :user
+  has_one_attached :post_photo
   attachment :image 
 
   validates :title, presence: true, length: {maximum: 50}

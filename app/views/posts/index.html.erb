@@ -16,7 +16,11 @@
         <%= link_to post_path(post), class: 'link_to_allpost' do %>
           <div class="post-index-content">
             <div class="post-index-image">
-              <%= attachment_image_tag post, :image, fallback: "nothing-image.png", class: 'post-index-img'%>
+              <% if post.post_photo.attached? %>
+                <%= image_tag post.post_photo, class: 'post-index-img' %>
+              <% else %>
+                <%= image_tag 'nothing-image.png', class: 'post-index-img' %>
+              <% end %>
             </div>
 
             <div class="post-index-title">

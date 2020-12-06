@@ -10,7 +10,7 @@
           <%= f.text_area :body, placeholder: '本文を書く', class: 'post-new-field', rows: 10, id: 'body' %>
         </div>
         <div class="post-create">
-          <%= f.attachment_field :image %>
+          <%= f.file_field :post_photo %>
         </div>
       
       <div class="post-new-btn-container">

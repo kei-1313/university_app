@@ -14,7 +14,11 @@
             <tbody>
               <tr>
                 <td>
-                  <%= attachment_image_tag user, :profile_image, fallback: "no-image.png", class: 'no-image'%>
+                  <% if user.user_photo.attached? %>
+                    <%= image_tag user.user_photo, class: 'no-image' %>
+                  <% else %>
+                    <%= image_tag 'no-image.png', class: 'no-image' %>
+                  <% end %>
                 </td>
                 <td><%= user.username %></td>
                 <td><%= user.student_id %></td>

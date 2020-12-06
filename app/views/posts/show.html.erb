@@ -13,7 +13,11 @@
     </div>
 
       <div class="post-show-image">
-         <%= attachment_image_tag @post.user, :profile_image, fallback: "no-image.png", class: 'post-show-img'%>
+          <% if @post.user.user_photo.attached? %>
+            <%= image_tag @post.user.user_photo, class: 'post-show-img'%>
+          <% else %>
+            <%= image_tag 'no-image.png', class: 'post-show-img' %>
+          <% end %>
       </div>
 
     <div class="post-show-flex post-show-border">
@@ -46,7 +50,11 @@
       <% @comments.each do |comment|%>
         <div class="comment-all">
           <div class="comment-user-images">
-            <%= attachment_image_tag comment.user, :profile_image, fallback: "no-image.png", class: 'comment-user-img'%>
+            <% if comment.user.user_photo.attached? %>
+              <%= image_tag comment.user.user_photo,  class: 'comment-user-img' %>
+            <% else %>
+              <%= image_tag 'no-image.png',  class: 'comment-user-img' %>
+            <% end %>
           </div>
           <div class="comment-content">
             <p class="comment-username"><%= comment.user.username%></p>

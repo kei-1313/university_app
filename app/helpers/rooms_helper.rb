@@ -35,6 +35,10 @@ module RoomsHelper
 
     profileimg = entry[0].user
 
-    attachment_image_tag profileimg, :profile_image, fallback: "no-image.png", class: 'dm-index-img'
+    if profileimg.user_photo.attached? 
+       image_tag profileimg.user_photo, class: 'dm-index-img' 
+    else 
+       image_tag 'no-image.png', class: 'dm-index-img' 
+    end 
   end
 end

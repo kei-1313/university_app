@@ -145,11 +145,12 @@ RSpec.feature "Notifications", type: :feature do
 
     first(".link_to_allpost").click
 
-    find(".like_btn").click
-
     fill_in "comment_feild", with: "通知します"
     click_button "コメントを投稿する"
+    fill_in "comment_feild", with: "通知しました"
+    click_button "コメントを投稿する"
     expect(page).to have_content "通知します"
+    expect(page).to have_content "通知しました"
 
     within ".header-menu" do
       click_link "ログアウト"
@@ -163,7 +164,7 @@ RSpec.feature "Notifications", type: :feature do
     end
 
     expect(page).to have_content "通知"
-    expect(page).to have_content "#{other_user.username}さんがあなたの投稿にいいねしました"
+    expect(page).to have_content "#{other_user.username}さんがあなたの投稿にコメントしました"
     expect(page).to have_content "#{other_user.username}さんがあなたの投稿にコメントしました"
 
     find(".all-delete-notifications").click

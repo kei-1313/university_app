@@ -35,6 +35,7 @@ gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'font-awesome-sass'
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

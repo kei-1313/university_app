@@ -29,7 +29,11 @@
     
     <div class="user-show-content">
       <div class="user-show-image">
-        <%= attachment_image_tag @user, :profile_image, fallback: "no-image.png", class: 'no-image'%>
+        <% if user.user_photo.attached? %>
+          <%= image_tag user.user_photo, class: 'no-image' %>
+        <% else %>
+          <%= image_tag 'no-image.png', class: 'no-image' %>
+        <% end %>
       </div>
       <div class="user-show-username">
         <%= @user.student_id %>
@@ -68,7 +72,11 @@
                 <div class="tabmenu-post-content">
 
                   <div class="tabmenu-post-image">
-                    <%= attachment_image_tag post, :image, fallback: "nothing-image.png", class: 'tabmenu-post-img'%>
+                    <% if post.post_photo.attached? %>
+                      <%= image_tag post.post_photo, class: 'tabmenu-post-img' %>
+                    <% else %>
+                      <%= image_tag 'nothing-image.png', class: 'tabmenu-post-img' %>
+                    <% end %>
                   </div>
 
                   <div class="tabmenu-post-title">
@@ -97,7 +105,11 @@
                 <div class="tabmenu-post-content">
 
                   <div class="tabmenu-post-image">
-                    <%= attachment_image_tag post, :image, fallback: "nothing-image.png", class: 'tabmenu-post-img'%>
+                    <% if post.post_photo.attached? %>
+                      <%= image_tag post.post_photo, class: 'tabmenu-post-img' %>
+                    <% else %>
+                      <%= image_tag 'nothing-image.png', class: 'tabmenu-post-img' %>
+                    <% end %>
                   </div>
 
                   <div class="tabmenu-post-title">
@@ -127,7 +139,11 @@
                 <div class="comment-all">
 
                   <div class="comment-user-images">
-                    <%= attachment_image_tag @user, :profile_image, fallback: "nothing-image.png", class: 'comment-user-img'%>
+                    <% if user.user_photo.attached? %>
+                      <%= image_tag user.user_photo, class: 'comment-user-img' %>
+                    <% else %>
+                      <%= image_tag 'no-image.png', class: 'comment-user-img' %>
+                    <% end %>
                   </div>
 
                   <div class="comment-content comment-user-content">

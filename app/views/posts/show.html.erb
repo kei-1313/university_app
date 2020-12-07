@@ -47,7 +47,7 @@
 
 
     
-      <% @comments.each do |comment|%>
+      <% @comments.reverse.each do |comment|%>
         <div class="comment-all">
           <div class="comment-user-images">
             <% if comment.user.user_photo.attached? %>
@@ -58,7 +58,7 @@
           </div>
           <div class="comment-content">
             <p class="comment-username"><%= comment.user.username%></p>
-            <p class="comment-text"><%= comment.content %></p>
+            <p class="comment-text"><%= simple_format(comment.content ) %></p>
           </div>
           <% if  comment.user_id == current_user.id %>
             <div class="comment-delete">

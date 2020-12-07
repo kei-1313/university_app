@@ -10,12 +10,21 @@
             <%= link_to post_path(post) do %>
               <div class="post-index-content">
                 <div class="post-index-image">
-                  <%= attachment_image_tag post, :image, fallback: "nothing-image.png", class: 'post-index-img'%>
+                  <% if post.post_photo.attached? %>
+                    <%= image_tag post.post_photo, class: 'post-index-img' %>
+                  <% else %>
+                    <%= image_tag 'nothing-image.png', class: 'post-index-img' %>
+                  <% end %>
                 </div>
 
                 <div class="post-index-title">
                   <%= post.title %>
                 </div>
+              </div>
+               <div class="post-index-info-container">
+                <span class="post-index-info"><i class="fas fa-heart"></i><%= post.likes.count %></span>
+                <span class="post-index-info"><i class="fas fa-comments"></i><%= post.comments.count %></span>
+                <span class="post-index-info"><%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></span>
               </div>
             <% end %>
           </div>

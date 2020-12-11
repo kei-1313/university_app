@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
     get :search, on: :collection #urlにidをつけない
+    resources :tags, only: [:show]
   end
 
   #通知機能

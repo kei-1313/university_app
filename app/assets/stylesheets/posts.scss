@@ -33,7 +33,6 @@
       font-size: 19px;
       color: #95a3a6;
       font-weight: 600;
-      // margin-left: 5px;
     }
   }
 
@@ -49,14 +48,15 @@
       .fa-heart{
         margin-right: 3px;
       }
-      
+    }
+    .fa-heart{
+      margin-left: 5px;
     }
   }
 
   .post-index-content:hover {
     opacity: 0.7;
   }
-
   //tag機能
   .post-tag-index {
     font-size: 13px;
@@ -72,6 +72,7 @@
     margin: 0 0 3px 5px;
   }
 }
+
 
 //検索機能
 .search-form {

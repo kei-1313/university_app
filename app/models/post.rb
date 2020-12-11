@@ -15,6 +15,10 @@ class Post < ApplicationRecord
   #通知機能
   has_many :notifications, dependent: :destroy
 
+  #tag機能
+  has_many :tag_maps, dependent: :destroy
+  has_many :tags, through: :tag_maps
+
   #いいねの通知機能のメソッド
   def create_notification_like!(current_user)
     #既にいいねしているかどうか確認（連打しても通知が何回も送られないように）
@@ -68,6 +72,24 @@ class Post < ApplicationRecord
       Post.where('title LIKE ?', "%#{search}%")
     else 
       Post.all
+    end
+  end
+
+  #tag機能
+  def save_tag(sents_tag)
+    unless self.tags.nil?
+    current_tag = self.tags.pluck(:tag_name) 
+    end
+    old_tag = current_tag - sents_tag
+    new_tag = sents_tag - current_tag
+
+    old_tag.each do |old_name|
+      self.tags.delete Tag.find_by(tag_name: old_name)
+    end
+
+    new_tag.each do |new_name|
+      posts_tag = Tag.find_or_create_by(tag_name: new_name)
+      self.tags << posts_tag
     end
   end
       

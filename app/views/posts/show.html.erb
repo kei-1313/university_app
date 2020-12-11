@@ -32,7 +32,12 @@
       <% end %>
     </div>
 
-    
+      <div class="post-tag-show-container">
+        <% @post.tags.each do |tag| %>
+          <span class="post-tag-show"><%= tag.tag_name %></span>
+        <% end %>
+      </div>
+
       <div class="post-show-title">
         <h3><%= @post.title %></h3>
       </div>

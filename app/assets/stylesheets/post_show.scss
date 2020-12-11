@@ -103,7 +103,7 @@
 
 .post-show-body {
   padding-bottom: 30px;
-  margin-left: 2px;
+  margin-left: ""px;
 }
 
 .post-show-like {
@@ -130,14 +130,20 @@
     font-size: 13px;
     color: #fff;
     background-color: orange;
-    width: 50px;
     height: 20px;
     border-radius: 3px;
     display: inline-block;
     text-align: center;
     line-height: 20px;
-    padding: 2px 4px;
+    padding: 2px 6px;
     margin: 0 0 3px 0;
+    border: 1px solid orange;
+    transition: all .4s;
+  }
+
+  .post-tag-show:hover {
+    background-color: #fff;
+    color: orange;
   }
  }
 

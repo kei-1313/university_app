@@ -57,19 +57,28 @@
   .post-index-content:hover {
     opacity: 0.7;
   }
-  //tag機能
-  .post-tag-index {
+}
+
+//tag機能
+.post-tag-index {
+  display: inline-block;
+  span {
+    margin: 0 5px 3px 0;
     font-size: 13px;
     color: #fff;
     background-color: orange;
-    width: 50px;
     height: 20px;
     border-radius: 3px;
-    display: inline-block;
     text-align: center;
     line-height: 20px;
-    padding: 2px 4px;
-    margin: 0 0 3px 5px;
+    padding: 2px 6px;
+    border: 1px solid orange;
+    transition: all .4s;
+    display: inline-block;
+  }
+  span:hover {
+    background-color: #fff;
+    color: orange;
   }
 }
 

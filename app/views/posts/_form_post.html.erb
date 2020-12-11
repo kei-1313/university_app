@@ -12,6 +12,10 @@
         <div class="post-create">
           <%= f.file_field :post_photo %>
         </div>
+        <div class="post-create tag-create">
+          <span class="tag-notice">※タグを複数入力する場合は空白を空けてください</span>
+          <%= f.text_field :tag_name, placeholder: 'タグを入力してください', class: 'tag-field' %>
+        </div>
       
       <div class="post-new-btn-container">
         <%= f.submit '投稿する', class: 'post-new-btn'%>

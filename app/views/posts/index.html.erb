@@ -28,6 +28,9 @@
             </div>
           </div>
           <div class="post-index-info-container">
+            <% post.tags.each do |tag| %>
+              <span class="post-tag-index"><%= tag.tag_name %></span>
+            <% end %>
             <span class="post-index-info"><i class="fas fa-heart"></i><%= post.likes.count %></span>
             <span class="post-index-info"><i class="fas fa-comments"></i><%= post.comments.count %></span>
             <span class="post-index-info"><%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></span>

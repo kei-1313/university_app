@@ -29,7 +29,9 @@
           </div>
           <div class="post-index-info-container">
             <% post.tags.each do |tag| %>
-              <span class="post-tag-index"><%= tag.tag_name %></span>
+              <%= link_to post_tag_path(post, tag), class: 'post-tag-index' do %>
+              <span><%= tag.tag_name %></span>
+              <% end %>
             <% end %>
             <span class="post-index-info"><i class="fas fa-heart"></i><%= post.likes.count %></span>
             <span class="post-index-info"><i class="fas fa-comments"></i><%= post.comments.count %></span>

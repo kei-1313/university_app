@@ -94,7 +94,7 @@
 }
 
 .post-show-title {
-  padding: 20px 0 10px 0;
+  padding: 10px 0 10px 0;
   h3 {
     color: #ff8d99;
   }
@@ -120,6 +120,24 @@
     color: #333;
   }
 }
+
+ //tag機能
+ .post-tag-show-container {
+  padding-top: 10px;
+   .post-tag-show {
+    font-size: 13px;
+    color: #fff;
+    background-color: orange;
+    width: 50px;
+    height: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    padding: 2px 4px;
+    margin: 0 0 3px 0;
+  }
+ }
 
 //コメント投稿機能
 .post-show-comment {

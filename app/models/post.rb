@@ -92,5 +92,10 @@ class Post < ApplicationRecord
       self.tags << posts_tag
     end
   end
+
+  #ランキング機能
+  def self.likes_ranking 
+    Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+  end
       
 end

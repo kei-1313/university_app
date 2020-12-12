@@ -37,48 +37,56 @@
   }
 
   .post-index-info-container {
-    text-align: right;
-    .post-index-info {
-      font-size: 11px;
-      color:#95a3a6 ;
-      display: inline-block;
-      padding-top: 13px;
-
-      .fa-comments,
+    display: flex;
+    .post-time-like-comment-container {
+      width: 30%;
+      align-self: flex-end;
+      .post-index-info {
+        font-size: 11px;
+        color:#95a3a6 ;
+        display: inline-block;
+        padding-top: 13px;
+  
+        .fa-comments,
+        .fa-heart{
+          margin-right: 3px;
+        }
+      }
       .fa-heart{
-        margin-right: 3px;
+        margin-left: 5px;
       }
     }
-    .fa-heart{
-      margin-left: 5px;
-    }
   }
-
   .post-index-content:hover {
     opacity: 0.7;
   }
 }
 
 //tag機能
-.post-tag-index {
-  display: inline-block;
-  span {
-    margin: 0 5px 3px 0;
-    font-size: 13px;
-    color: #fff;
-    background-color: orange;
-    height: 20px;
-    border-radius: 3px;
-    text-align: center;
-    line-height: 20px;
-    padding: 2px 6px;
-    border: 1px solid orange;
-    transition: all .4s;
+.tag-container {
+  width: 70%;
+  padding-left: 107px;
+  box-sizing: border-box;
+  .post-tag-index {
     display: inline-block;
-  }
-  span:hover {
-    background-color: #fff;
-    color: orange;
+    span {
+      margin: 0 5px 3px 0;
+      font-size: 11px;
+      color:#95a3a6;
+      background-color: #fff;
+      height: 20px;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 20px;
+      padding: 2px 6px;
+      border: 1px solid #95a3a6;
+      transition: all .4s;
+      display: inline-block;
+    }
+    span:hover {
+      background-color: #95a3a6;
+      color:#fff;
+    }
   }
 }
 

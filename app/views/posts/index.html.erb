@@ -53,3 +53,7 @@
     <%= paginate @posts %>
   </div>
 </div>
+
+<% @rankings.each do |ranking| %>
+  <%= ranking.title %>
+<% end  %>

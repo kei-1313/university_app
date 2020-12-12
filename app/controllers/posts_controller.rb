@@ -21,7 +21,10 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     tag_list = params[:post][:tag_name].split(nil)
     if @post.save
+      #タグ機能
       @post.save_tag(tag_list)
+      #ここまで
+
       flash[:success] = "新しく投稿しました"
       redirect_to post_path(@post)
     else
@@ -36,7 +39,12 @@ class PostsController < ApplicationController
   end
 
   def update 
+    tag_list = params[:post][:tag_name].split(nil)
     if @post.update(post_params)
+      #タグ機能
+      @post.save_tag(tag_list)
+      #ここまで
+
       flash[:success] = '投稿を編集しました'
       redirect_to post_path(@post)
     else

@@ -32,7 +32,14 @@
       <% end %>
     </div>
 
-    
+      <div class="post-tag-show-container">
+        <% @post.tags.each do |tag| %>
+           <%= link_to post_tag_path(@post, tag), class: 'post-tag-show' do %>
+            <span><%= tag.tag_name %></span>
+          <% end %>
+        <% end %>
+      </div>
+
       <div class="post-show-title">
         <h3><%= @post.title %></h3>
       </div>

@@ -94,14 +94,16 @@
 }
 
 .post-show-title {
-  padding: 20px 0 10px 0;
+  padding: 10px 0 10px 0;
   h3 {
     color: #ff8d99;
+    font-size: 26px;
   }
 }
 
 .post-show-body {
   padding-bottom: 30px;
+  margin-left: ""px;
 }
 
 .post-show-like {
@@ -120,6 +122,30 @@
     color: #333;
   }
 }
+
+ //tag機能
+ .post-tag-show-container {
+  padding-top: 10px;
+   .post-tag-show {
+    font-size: 11px;
+    color: #95a3a6;
+    background-color: #fff;
+    height: 20px;
+    border-radius: 3px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+    padding: 2px 6px;
+    margin: 0 0 3px 0;
+    border: 1px solid #95a3a6;
+    transition: all .4s;
+  }
+
+  .post-tag-show:hover {
+    background-color: #95a3a6;
+    color: #fff;
+  }
+ }
 
 //コメント投稿機能
 .post-show-comment {

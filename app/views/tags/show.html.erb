@@ -1,6 +1,6 @@
 <div class="post-index all-wrapper">
   <div class="post-index-container all-container">
-    <%= link_to '前のページに戻る>>', :back , class: 'back-btn'%>
+    <%= link_to '一覧へ戻る >>', posts_path, class: 'post-show-back-btn' %>
       <div class="post-index-title all-title">
         <h2>『<%= @tag.tag_name %>』タグで検索<%= @tag.posts.count %>件</h2>
       </div>

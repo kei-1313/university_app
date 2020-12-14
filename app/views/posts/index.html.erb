@@ -57,7 +57,7 @@
           <h2>人気投稿</h2>
         </div>
 
-        <% @rankings.each do |ranking| %>
+        <% @rankings.each.with_index(1) do |ranking, i| %>
          <%= link_to post_path(ranking), class: 'post-ranking-link' do %>
             <div class="post-ranking">
               <div class="post-ranking-image-container">
@@ -67,7 +67,7 @@
                   <%= image_tag 'nothing-image.png', class: 'post-ranking-image' %>
                 <% end %>
 
-                <span class="ranking-number"></span>
+                <span class="ranking-number"><%= i %></span>
               </div>
               <div class="post-ranking-title-container">
                 <p class="post-ranking-title"><%= ranking.title %></p>

@@ -171,7 +171,11 @@
       position: absolute;
       width: 15px;
       height: 15px;
-      background-color: orangered;
+      font-size: 11px;
+      text-align: center;
+      line-height: 15px;
+      color: #fff;
+      background-color: skyblue;
       top: 5px;
       left: 3px;
     }
@@ -231,6 +235,9 @@
 
 //レスポンシブ
 @media screen and (max-width:580px) {
+  .post-index-container {
+    padding: 20px 3px;
+  }
   .post-index-link {
     .post-index-content {
       .post-index-title {
@@ -238,6 +245,39 @@
         margin-left: 32px;
       }
     }
+  }
+  .post-index-link {
+    .post-index-info-container {
+      .post-time-like-comment-container {
+        width: 40%;
+        .post-index-info {
+          font-size: 5px;
+          .fa-comments,
+          .fa-heart{
+            margin-right: 2px;
+            font-size: 8px;
+          }
+        }
+        .fa-heart{
+          margin-left: 2px;
+        }
+      }
+    }
+  }
+
+  .tag-container {
+    width: 60%;
+    padding-left: 107px;
+    .post-tag-index {
+      display: inline-block;
+      span {
+        font-size: 6px;
+      }
+    }
+  }
+
+  .post-index-sub-colums {
+    display: none;
   }
 }
 

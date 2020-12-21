@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    tag_list = params[:post][:tag_name].split(nil)
+    tag_list = params[:post][:tag_name].split(",")
     if @post.save
       #タグ機能
       @post.save_tag(tag_list)
@@ -34,13 +34,14 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @tag_list = @post.tags.pluck(:tag_name).join(",")
     if @post.user != current_user
       redirect_to posts_path, alert: '不正なアクセスです'
     end
   end
 
   def update 
-    tag_list = params[:post][:tag_name].split(nil)
+    tag_list = params[:post][:tag_name].split(",")
     if @post.update(post_params)
       #タグ機能
       @post.save_tag(tag_list)

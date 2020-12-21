@@ -78,16 +78,16 @@ class Post < ApplicationRecord
   #tag機能
   def save_tag(sents_tag)
     unless self.tags.nil?
-    current_tag = self.tags.pluck(:tag_name) 
+    current_tags = self.tags.pluck(:tag_name) 
     end
-    old_tag = current_tag - sents_tag
-    new_tag = sents_tag - current_tag
+    old_tags = current_tags - sents_tag
+    new_tags = sents_tag - current_tags
 
-    old_tag.each do |old_name|
+    old_tags.each do |old_name|
       self.tags.delete Tag.find_by(tag_name: old_name)
     end
 
-    new_tag.each do |new_name|
+    new_tags.each do |new_name|
       posts_tag = Tag.find_or_create_by(tag_name: new_name)
       self.tags << posts_tag
     end

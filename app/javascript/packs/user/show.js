@@ -1,3 +1,4 @@
+'use strict'
 {
   const tabmenuBtns = document.querySelectorAll('.tabmenu-btn');
   const tabmenuContents = document.querySelectorAll('.tabmenu-content');

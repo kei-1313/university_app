@@ -176,9 +176,36 @@
       text-align: center;
       line-height: 15px;
       color: #fff;
-      background-color: skyblue;
       top: 5px;
       left: 3px;
+    }
+  }
+
+  .post-ranking-link {
+    &:nth-of-type(1) {
+      .ranking-number {
+        background-color: gold;
+      }
+    }
+    &:nth-of-type(2) {
+      .ranking-number {
+        background-color: silver;
+      }
+    }
+    &:nth-of-type(3) {
+      .ranking-number {
+        background-color: #815a2b;
+      }
+    }
+    &:nth-of-type(4) {
+      .ranking-number {
+        background-color: springgreen;
+      }
+    }
+    &:nth-of-type(5) {
+      .ranking-number {
+        background-color: skyblue;
+      }
     }
   }
 

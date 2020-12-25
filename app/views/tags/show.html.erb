@@ -1,51 +1,58 @@
 <div class="post-index all-wrapper">
-  <div class="post-index-container all-container">
-    <%= link_to '一覧へ戻る >>', posts_path, class: 'post-show-back-btn' %>
-      <div class="post-index-title all-title">
-        <h2>『<%= @tag.tag_name %>』タグで検索<%= @tag.posts.count %>件</h2>
-      </div>
+  <div class="post-index-two-columns">
+    <div class="post-index-container all-container">
+      <%= link_to '一覧へ戻る >>', posts_path, class: 'post-show-back-btn' %>
+        <div class="post-index-title all-title">
+          <h2>『<%= @tag.tag_name %>』タグで検索<%= @tag.posts.count %>件</h2>
+        </div>
 
-      <% @tag.posts.each do |post| %>
-          <div class="post-index-link">
-            <%= link_to post_path(post) do %>
-              <div class="post-index-content">
-                <div class="post-index-image">
-                  <% if post.post_photo.attached? %>
-                    <%= image_tag post.post_photo, class: 'post-index-img' %>
-                  <% else %>
-                    <%= image_tag 'nothing-image.png', class: 'post-index-img' %>
-                  <% end %>
-                </div>
-
-                <div class="post-index-title">
-                  <%= post.title %>
-                </div>
-              </div>
-               <div class="post-index-info-container">
-
-                <div class="tag-container">
-                  <% post.tags.each do |tag| %>
-                    <%= link_to post_tag_path(post, tag), class: 'post-tag-index' do %>
-                    <span><%= tag.tag_name %></span>
+        <% @tag.posts.each do |post| %>
+            <div class="post-index-link">
+              <%= link_to post_path(post) do %>
+                <div class="post-index-content">
+                  <div class="post-index-image">
+                    <% if post.post_photo.attached? %>
+                      <%= image_tag post.post_photo, class: 'post-index-img' %>
+                    <% else %>
+                      <%= image_tag 'nothing-image.png', class: 'post-index-img' %>
                     <% end %>
-                  <% end %>
-                </div> 
+                  </div>
 
-                <div class="post-time-like-comment-container">
-                  <span class="post-index-info"><i class="fas fa-heart"></i><%= post.likes.count %></span>
+                  <div class="post-index-title">
+                    <%= post.title %>
+                  </div>
+                </div>
+                <div class="post-index-info-container">
 
-                  <span class="post-index-info"><i class="fas fa-comments"></i><%= post.comments.count %></span>
+                  <div class="tag-container">
+                    <% post.tags.each do |tag| %>
+                      <%= link_to post_tag_path(post, tag), class: 'post-tag-index' do %>
+                      <span><%= tag.tag_name %></span>
+                      <% end %>
+                    <% end %>
+                  </div> 
 
-                  <span class="post-index-info"><%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></span>
-                </div>  
-              </div>
-            <% end %>
-          </div>
-      <% end %>
+                  <div class="post-time-like-comment-container">
+                    <span class="post-index-info"><i class="fas fa-heart"></i><%= post.likes.count %></span>
+
+                    <span class="post-index-info"><i class="fas fa-comments"></i><%= post.comments.count %></span>
+
+                    <span class="post-index-info"><%= post.created_at.strftime("%Y年%m月%d日%H時%M分") %></span>
+                  </div>  
+                </div>
+              <% end %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="post-index-sub-colums">
+      <%= render 'posts/side_colums' %>
+    </div>
 
   </div>
 </div> 
 
+<%= javascript_pack_tag 'post/index' %>
 
 
 

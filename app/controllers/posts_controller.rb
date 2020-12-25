@@ -63,6 +63,8 @@ class PostsController < ApplicationController
    #検索機能（あいまい検索）
    def search 
     @posts = Post.post_search(params[:search])
+    @rankings = Post.unscoped.likes_ranking
+    @tags = Tag.all
    end
 
   private 

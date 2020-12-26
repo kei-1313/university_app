@@ -144,25 +144,33 @@
   box-shadow: 2px 2px 10px rgba($color: #000000, $alpha: 0.1)
 }
 
+.post-browsing-histoies-container {
+  margin-bottom: 20px;
+}
+
 //ランキング
-.post-ranking-heading {
+.post-ranking-heading,
+.post-history-heading {
   h2 {
     text-align: center;
-    padding:10px 0 ;
+    padding:10px 0 20px 0;
   }
 }
 
-.post-ranking {
+.post-ranking,
+.browsing-histories {
   display: flex;
   // background-color: orangered;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
   transition: all .4s;
-  .post-ranking-image-container {
+  .post-ranking-image-container,
+  .browsing-histories-image-container {
     width: 30%;
     align-self: center;
     position: relative;
-    .post-ranking-image {
+    .post-ranking-image,
+    .post-history-image {
       width: 100%;
       margin: 5px 0 0 5px;
       height: 70px;
@@ -182,11 +190,13 @@
   }
 
 
-  .post-ranking-title-container {
+  .post-ranking-title-container,
+  .post-history-title-container {
     width: 70%;
     align-self: center;
     margin-left: 10px;
-    .post-ranking-title {
+    .post-ranking-title,
+    .post-history-title {
       font-size: 13px;
       color: #95a3a6;
     }

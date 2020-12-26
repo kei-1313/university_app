@@ -33,6 +33,9 @@ class User < ApplicationRecord
   has_many :active_notifications, foreign_key:"visitor_id", class_name: "Notification", dependent: :destroy #通知をした側
   has_many :passive_notifications, foreign_key:"visited_id", class_name: "Notification", dependent: :destroy #通知をされた側
 
+  #閲覧履歴
+  has_many :browsing_histories, dependent: :destroy
+
   
   def posts
     return Post.where(user_id: self.id)

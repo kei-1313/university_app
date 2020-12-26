@@ -52,46 +52,9 @@
     </div>
 
     <div class="post-index-sub-colums">
-      <div class="post-index-sub-colums-container">
-        <div class="post-ranking-heading">
-          <h2>人気投稿</h2>
-        </div>
-
-        <% @rankings.each.with_index(1) do |ranking, i| %>
-         <%= link_to post_path(ranking), class: 'post-ranking-link' do %>
-            <div class="post-ranking">
-              <div class="post-ranking-image-container">
-                <% if ranking.post_photo.attached? %>
-                  <%= image_tag ranking.post_photo, class: 'post-ranking-image' %>
-                <% else %>
-                  <%= image_tag 'nothing-image.png', class: 'post-ranking-image' %>
-                <% end %>
-
-                <span class="ranking-number"><%= i %></span>
-              </div>
-              <div class="post-ranking-title-container">
-                <p class="post-ranking-title"><%= ranking.title %></p>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="post-tags-list-cotainer">
-        <div class="post-tags-list-title">
-          <h2>タグ一覧</h2>
-        </div>
-
-        <div class="post-tags-list">
-          <% @tags.each do |tag| %>
-            <%= link_to post_tag_path(tag.posts, tag), class: 'post-tags-list-link' do  %>
-              <span class="post-tags-list-of-tag"><%= tag.tag_name %></span>
-            <% end %>
-          <% end %>
-        </div>
-     </div>
-
+      <%= render 'side_colums' %>
     </div>
+    
   </div>
   <div class="pagination-container">
     <%= paginate @posts %>

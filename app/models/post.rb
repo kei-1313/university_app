@@ -19,6 +19,9 @@ class Post < ApplicationRecord
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
 
+  #閲覧履歴
+  has_many :browsing_histories, dependent: :destroy
+
   #いいねの通知機能のメソッド
   def create_notification_like!(current_user)
     #既にいいねしているかどうか確認（連打しても通知が何回も送られないように）

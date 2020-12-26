@@ -52,9 +52,28 @@
     </div>
 
     <div class="post-index-sub-colums">
+      <div class="post-browsing-histoies-container">
+        <div class="post-history-heading">
+          <h2>最近閲覧した投稿</h2>
+        </div> 
+        <% @histories.each do |history|  %>
+          <div class="browsing-histories">
+            <div class="browsing-histories-image-container">
+              <% if history.post.post_photo.attached? %>
+                <%= image_tag history.post.post_photo, class: 'post-history-image' %>
+              <% else %>
+                <%= image_tag 'nothing-image.png', class: 'post-history-image' %>
+              <% end %>
+            </div>
+            <div class="post-history-title-container">
+              <p class="post-history-title"><%= history.post.title %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <%= render 'side_colums' %>
     </div>
-    
+
   </div>
   <div class="pagination-container">
     <%= paginate @posts %>

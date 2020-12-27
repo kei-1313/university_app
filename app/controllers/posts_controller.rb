@@ -5,14 +5,8 @@ class PostsController < ApplicationController
     @posts = Post.page(params[:page]).per(10)
     @tags = Tag.all
     @rankings = Post.unscoped.likes_ranking
-
-    histories_limit = 5
-    @histories = current_user.browsing_histories.all
-
-    if @histories.count > histories_limit
-      #一番古いレコードは配列で一番前にあるから
-      @histories[0].destroy
-    end
+    
+    @histories = current_user.browsing_histories.order(id: "DESC").limit(5)
 
   end
 
@@ -29,7 +23,9 @@ class PostsController < ApplicationController
       old_history.destroy
     end
 
-    new_history.save
+    unless new_history.user_id == @post.user_id
+      new_history.save
+    end
   end
 
   def new

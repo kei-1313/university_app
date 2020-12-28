@@ -7,7 +7,6 @@ class PostsController < ApplicationController
     @rankings = Post.unscoped.likes_ranking
     
     @histories = current_user.browsing_histories.order(id: "DESC").limit(5)
-
   end
 
   def show
@@ -80,6 +79,7 @@ class PostsController < ApplicationController
     @posts = Post.post_search(params[:search])
     @rankings = Post.unscoped.likes_ranking
     @tags = Tag.all
+    @histories = current_user.browsing_histories.order(id: "DESC").limit(5)
    end
 
   private 

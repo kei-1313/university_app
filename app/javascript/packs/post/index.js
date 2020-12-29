@@ -1,7 +1,4 @@
 'use strict'
-
-import { data } from "jquery";
-
 {
   const rankingNumbers = document.querySelectorAll('.ranking-number');
 
@@ -10,7 +7,6 @@ import { data } from "jquery";
   rankingNumbers[2].style.backgroundColor = '#815a2b';
   rankingNumbers[3].style.backgroundColor = 'springgreen';
   rankingNumbers[4].style.backgroundColor = 'skyblue';
-  
 }
 
 {
@@ -19,9 +15,11 @@ import { data } from "jquery";
   const getTodayTime = today.getTime();
   const getTodaySecondTime = getTodayTime / (24 * 60 * 60 * 1000)
   const newMark = document.querySelector('.new-mark');
+  const newPostBtn = document.querySelector('.post-new-btn');
   console.log(today);
   console.log(getTodaySecondTime);
   console.log(keepTime);
+
 
   if (getTodayTime <= keepTime){
     newMark.textContent = '新着';

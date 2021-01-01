@@ -9,20 +9,3 @@
   rankingNumbers[4].style.backgroundColor = 'skyblue';
 }
 
-{
-  const keepTime = 50 * 1000;
-  const today = new Date();
-  const getTodayTime = today.getTime();
-  const getTodaySecondTime = getTodayTime / (24 * 60 * 60 * 1000)
-  const newMark = document.querySelector('.new-mark');
-  const newPostBtn = document.querySelector('.post-new-btn');
-  console.log(today);
-  console.log(getTodaySecondTime);
-  console.log(keepTime);
-
-
-  if (getTodayTime <= keepTime){
-    newMark.textContent = '新着';
-  }
-
-}

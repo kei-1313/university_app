@@ -7,6 +7,8 @@ class PostsController < ApplicationController
     @rankings = Post.unscoped.likes_ranking
     
     @histories = current_user.browsing_histories.order(id: "DESC").limit(5)
+
+    @current_time= Time.current
   end
 
   def show

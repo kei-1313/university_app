@@ -46,7 +46,10 @@
               </div>
 
             </div>
-              <span class="new-mark"></span>
+              <% if @current_time < post.created_at.since(1.day
+              ) %>
+                <div class = "new-flag">new</div>
+              <% end %>
           <% end %>
         </div> 
       <% end %>

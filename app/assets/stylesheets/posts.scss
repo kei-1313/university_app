@@ -28,7 +28,8 @@
 .post-index-link {
   padding: 15px 10px 2px 10px;
   box-sizing: border-box;
-    border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  position: relative;
   .post-index-content {
     display: flex;
     .post-index-image {
@@ -73,9 +74,18 @@
     opacity: 0.7;
   }
 
+  //新着フラグ
   .new-flag {
-    color: red;
+    color: #fff;
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 3px;
     font-size: 13px;
+    padding: 1px 6px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
   }
 }
 

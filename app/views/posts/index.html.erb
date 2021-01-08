@@ -46,9 +46,9 @@
               </div>
 
             </div>
-              <% if @current_time < post.created_at.since(1.day
+              <% if @current_time < post.created_at.since(7.day
               ) %>
-                <div class = "new-flag">new</div>
+                <div class = "new-flag">新着</div>
               <% end %>
           <% end %>
         </div> 

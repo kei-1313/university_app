@@ -1,13 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy ]
+  before_action :set_tag, only: [:index, :search,]
+  before_action :set_ranking, only: [:index, :search,]
+  before_action :set_history, only: [:index, :search,]
   def index
     @posts = Post.page(params[:page]).per(10)
-    @tags = Tag.all
-    @rankings = Post.unscoped.likes_ranking
-    
-    @histories = current_user.browsing_histories.order(id: "DESC").limit(5)
-
     @current_time= Time.current
   end
 
@@ -79,9 +77,6 @@ class PostsController < ApplicationController
    #検索機能（あいまい検索）
    def search 
     @posts = Post.post_search(params[:search])
-    @rankings = Post.unscoped.likes_ranking
-    @tags = Tag.all
-    @histories = current_user.browsing_histories.order(id: "DESC").limit(5)
    end
 
   private 
@@ -91,6 +86,18 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_tag
+    @tags = Tag.all
+  end
+
+  def set_ranking
+    @rankings = Post.unscoped.likes_ranking
+  end
+
+  def set_history
+    @histories = current_user.browsing_histories.order(id: "DESC").limit(5)
   end
 
 end

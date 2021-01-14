@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 //notifications/index and _notificationのview
+.notification {
+  padding-bottom: 30px;
+}
+
 .notification-container {
   max-width: 800px;
   padding: 25px 80px;
